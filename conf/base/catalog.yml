@@ -1,0 +1,47 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+
+bwa_cli_prod_proposta:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/BWA.BWAI01.CLI_PROD_PROPOSTA.202205.csv
+  load_args:
+    sep: ';'
+
+preprocessed_bwa_cli_prod_proposta:
+  type: pandas.ParquetDataSet
+  filepath: data/02_intermediate/preprocessed_bwa_cli_prod_proposta.pq
+
+model_input_table:
+  type: pandas.ParquetDataSet
+  filepath: data/03_primary/model_input_table.pq
+
+model:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/model.pickle
+  versioned: true
+
+labels_dictionary:
+  type: pandas.CSVDataSet
+  filepath: data/04_feature/labels_dict.csv
+
+df_train:
+  type: pandas.ParquetDataSet
+  filepath: data/05_model_input/df_train.pq
+
+df_test:
+  type: pandas.ParquetDataSet
+  filepath: data/05_model_input/df_test.pq
+
+y_train:
+  type: pickle.PickleDataSet
+  filepath: data/07_model_output/y_train.pq
+
+y_test:
+  type: pickle.PickleDataSet
+  filepath: data/07_model_output/y_test.pq
+
+X:
+  type: pandas.ParquetDataSet
+  filepath: data/05_model_input/X.pq

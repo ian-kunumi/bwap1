@@ -1,0 +1,31 @@
+# This is a boilerplate parameters config generated for pipeline 'data_science'
+# using Kedro 0.18.2.
+#
+# Documentation for this file format can be found in "Parameters"
+# Link: https://kedro.readthedocs.io/en/0.18.2/kedro_project_setup/configuration.html#parameters
+
+split_data_options:
+  test_size: 0.1
+  features:
+    - TIPOPRODUTO
+    - CODPRODUTO
+    - AGENCIA
+    - CODREGIONAL
+    - PROPOSTA_MULT
+    - VALORSOLICITADO
+    - VALORSUGERIDO
+    - VALORDEFERIDO
+    - TAXASOLICITADA
+    - PRAZODIAS
+
+model_options:
+  learning_rate: 0.1
+  boosting_type: 'dart'
+  objective: 'multiclass'
+  metric: 'multi_error'
+  max_bin: 12
+  lambda_l1: 0.01
+  lambda_l2: 0.01
+  max_depth: -1
+  num_leaves: 64
+  num_class: 3
